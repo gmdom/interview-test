@@ -57,6 +57,7 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
             onClick={(e) => e.stopPropagation()}
           />
           <button
+            type="button"
             className={styles.save}
             onClick={(e) => {
               e.stopPropagation();

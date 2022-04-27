@@ -1,15 +1,18 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm/TodoForm';
 import TodoList from './components/TodoList/TodoList';
 import Todo from './components/Todo/Todo';
 import reducer from './reducer';
 
-const initialState = [];
+const initialState = JSON.parse(localStorage.getItem('todolist')) || [];
 
 function App() {
   const [todos, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    localStorage.setItem('todolist', JSON.stringify(todos));
+  }, [todos]);
   return (
     <div className="App">
       <h1>Todo List</h1>
