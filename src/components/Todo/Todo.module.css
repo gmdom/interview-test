@@ -1,0 +1,54 @@
+.todo{
+    display: flex;
+    background: linear-gradient(to right, rgb(183, 174, 107),rgba(183, 174, 107, 0.708));
+    margin: 0.5rem;
+    justify-content: space-between;
+    height: 3rem;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+}
+.todo p{
+    margin-left: 1rem;
+}
+.buttons{
+  margin-right: 1rem;
+}
+.buttons button{
+    appearance: none;
+    border: none;
+    background: none;
+    color:white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: .2rem;
+}
+.done{
+    background: linear-gradient(to right, rgb(72, 71, 62),rgba(193, 191, 173, 0.708));
+}
+.done p{
+    text-decoration: line-through;
+}
+
+.edit-form{
+    display: flex; 
+    height: 100%;
+    width: 100%;
+}
+.edit-form input{
+    
+    border: 2px solid rgb(183, 174, 107);
+    flex: 1;
+    outline: none;
+    margin-right: -1.8rem;
+    padding-left: 20px;
+    border-radius: 5px 0 0 5px;
+
+}
+
+.save{
+    flex: 0 0 20%;
+    background: linear-gradient(to right, rgb(183, 174, 107),rgb(134, 129, 87));
+    border: none;
+    border-radius: 0 5px 5px 0;
+}

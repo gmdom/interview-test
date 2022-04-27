@@ -1,5 +1,6 @@
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { useState } from 'react';
+import styles from './Todo.module.css';
 export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
   const [isEditing, setIsEditing] = useState(false);
   const [task, setTask] = useState(todo.task);
@@ -13,6 +14,7 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
 
   return (
     <li
+      className={`${styles.todo} ${todo.done ? styles.done : ''}`}
       onClick={(e) => {
         toggleTodo(todo.id);
       }}
@@ -20,7 +22,7 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
       {!isEditing ? (
         <>
           <p>{todo.task}</p>
-          <div>
+          <div className={styles.buttons}>
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -35,9 +37,10 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
           </div>
         </>
       ) : (
-        <form>
+        <form className={styles['edit-form']}>
           <input type="text" value={task} onChange={handleChange} />
           <button
+            className={styles.save}
             onClick={(e) => {
               e.stopPropagation();
               updateTodo(task);
