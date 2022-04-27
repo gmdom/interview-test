@@ -4,13 +4,17 @@ import styles from './Todo.module.css';
 export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
   const [isEditing, setIsEditing] = useState(false);
   const [task, setTask] = useState(todo.task);
+  const [markAsDelete, setMarkAsDelete] = useState(false);
   const inputRef = useRef(null);
 
   const handleChange = (e) => {
     setTask(e.target.value);
   };
   const handleDelete = () => {
-    deleteTodo(todo.id);
+    setMarkAsDelete(true);
+    setTimeout(() => {
+      deleteTodo(todo.id);
+    }, 200);
   };
 
   useEffect(() => {
@@ -19,7 +23,9 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
 
   return (
     <li
-      className={`${styles.todo} ${todo.done ? styles.done : ''}`}
+      className={`${styles.todo} ${todo.done ? styles.done : ''} ${
+        markAsDelete ? styles.delete : ''
+      }`}
       onClick={(e) => {
         toggleTodo(todo.id);
       }}
