@@ -1,9 +1,10 @@
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './Todo.module.css';
 export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
   const [isEditing, setIsEditing] = useState(false);
   const [task, setTask] = useState(todo.task);
+  const inputRef = useRef(null);
 
   const handleChange = (e) => {
     setTask(e.target.value);
@@ -11,6 +12,10 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
   const handleDelete = () => {
     deleteTodo(todo.id);
   };
+
+  useEffect(() => {
+    if (inputRef.current != null) inputRef.current.focus();
+  }, [isEditing]);
 
   return (
     <li
@@ -39,6 +44,7 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
       ) : (
         <form className={styles['edit-form']}>
           <input
+            ref={inputRef}
             type="text"
             value={task}
             onChange={handleChange}
