@@ -48,7 +48,10 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
           </div>
         </>
       ) : (
-        <form className={styles['edit-form']}>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={styles['edit-form']}
+        >
           <input
             ref={inputRef}
             type="text"

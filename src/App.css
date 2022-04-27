@@ -14,5 +14,11 @@
 
 @media only screen and (max-width: 390px){
   .App{
-    padding:0
+    font-size: 200%;
+    padding:0;
+    min-height: 100vh;
+    margin: auto;
+    border-radius: initial;
+    box-shadow:none;
+    min-width: 100vw;
  }}

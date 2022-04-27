@@ -4,6 +4,10 @@
     height: 3rem;
 
 }
+@media only screen and (max-width: 390px){
+    .form{margin: 0}
+}
+
 .form input{
   
     border: 3px solid rgb(44, 131, 158);

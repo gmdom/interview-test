@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Todo List</h1>
+      <h5>Simple todo list made by Rafael García</h5>
       <TodoForm addTodo={(task) => dispatch({ type: 'ADDED', task })} />
       <TodoList>
         {todos.map((todo) => (
