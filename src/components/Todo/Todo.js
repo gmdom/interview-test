@@ -38,7 +38,12 @@ export default function Todo({ todo, deleteTodo, toggleTodo, updateTodo }) {
         </>
       ) : (
         <form className={styles['edit-form']}>
-          <input type="text" value={task} onChange={handleChange} />
+          <input
+            type="text"
+            value={task}
+            onChange={handleChange}
+            onClick={(e) => e.stopPropagation()}
+          />
           <button
             className={styles.save}
             onClick={(e) => {
