@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
+import styles from './Todo.module.css';
 export default function TodoForm({ addTodo }) {
   const [task, setTask] = useState('');
   const handleSubmit = (e) => {
@@ -13,14 +14,14 @@ export default function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <input
         type="text"
         value={task}
         onChange={handleChange}
         placeholder="Add a todo"
       />
-      <button>Add Todo</button>
+      <button className={styles.add}>Add Todo</button>
     </form>
   );
 }
